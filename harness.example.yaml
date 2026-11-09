@@ -1,0 +1,57 @@
+# KAIROS Code Example Configuration
+# Copy to .harness/config.yaml or ~/.kairos/config.yaml
+
+project:
+  name: my-project
+  description: "My AI-assisted development workspace"
+
+profile: developer
+
+runtime:
+  mode: developer   # "developer" or "vibe"
+  max_iterations: 5
+  max_parallel_agents: 3
+  timeout: 600
+  auto_git_checkpoints: true
+
+llm:
+  default_provider: openai  # openai, anthropic, gemini, ollama, local
+  default_model: gpt-4o
+  base_urls:
+    ollama: http://localhost:11434
+    local: http://localhost:8000/v1
+
+workflow:
+  default: feature_development
+  require_approval:
+    - implementation_plan
+
+agents:
+  architect:
+    enabled: true
+  coder:
+    enabled: true
+  reviewer:
+    enabled: true
+  tester:
+    enabled: true
+  security:
+    enabled: false
+
+security:
+  enabled: true
+  sandbox: none
+  filesystem_access: project_only
+  command_allowlist:
+    - python
+    - pip
+    - pytest
+    - git
+    - node
+    - npm
+    - cargo
+
+observability:
+  enabled: true
+  log_level: info
+  session_replay: true

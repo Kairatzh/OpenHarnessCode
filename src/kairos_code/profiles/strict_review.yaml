@@ -1,0 +1,28 @@
+# Profile: strict-review
+# Multiple review passes, human approval mandatory for plans and operations
+profile: strict-review
+runtime:
+  max_iterations: 5
+workflow:
+  default: feature_development
+  require_approval:
+    - implementation_plan
+    - coder
+security:
+  enabled: true
+  filesystem_access: project_only
+  command_allowlist:
+    - python
+    - pytest
+    - git
+agents:
+  architect:
+    enabled: true
+  coder:
+    enabled: true
+  reviewer:
+    enabled: true
+  tester:
+    enabled: true
+  security:
+    enabled: true

@@ -1,0 +1,38 @@
+# Profile: autonomous
+# Deep research / overnight autonomous mode: dynamic swarm, periodic checkpoints, independent review
+profile: autonomous
+runtime:
+  mode: developer
+  max_iterations: 12
+  timeout: 28800  # 8 hours
+  auto_git_checkpoints: true
+
+llm:
+  default_provider: openai
+  default_model: gpt-4o
+
+workflow:
+  default: feature_development
+  require_approval: []
+  auto_test: true
+  auto_review: true
+
+security:
+  enabled: true
+  filesystem_access: project_only
+
+agents:
+  architect:
+    enabled: true
+  implementer:
+    enabled: true
+  debugger:
+    enabled: true
+  reviewer:
+    enabled: true
+  tester:
+    enabled: true
+  refactorer:
+    enabled: true
+  explainer:
+    enabled: true

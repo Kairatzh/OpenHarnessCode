@@ -1,0 +1,21 @@
+# Profile: cost-optimized
+# Uses small / efficient models for coding & tests, local or mini models
+profile: cost-optimized
+llm:
+  default_provider: openai
+  default_model: gpt-4o-mini
+runtime:
+  token_budget: 50000
+  max_iterations: 3
+workflow:
+  default: feature_development
+agents:
+  architect:
+    enabled: true
+    model_name: gpt-4o-mini
+  coder:
+    enabled: true
+    model_name: gpt-4o-mini
+  reviewer:
+    enabled: true
+    model_name: gpt-4o-mini

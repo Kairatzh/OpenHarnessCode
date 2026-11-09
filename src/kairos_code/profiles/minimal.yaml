@@ -1,0 +1,21 @@
+# Profile: minimal
+# Fastest setup, bare minimum agents, no extra overhead
+profile: minimal
+llm:
+  default_provider: openai
+  default_model: gpt-4o-mini
+runtime:
+  max_iterations: 3
+  timeout: 300
+workflow:
+  default: bugfix
+  require_approval: []
+agents:
+  architect:
+    enabled: false
+  coder:
+    enabled: true
+  reviewer:
+    enabled: false
+  tester:
+    enabled: false

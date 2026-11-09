@@ -1,0 +1,49 @@
+# Profile: developer
+# Full engineering standard: 7-agent team, rigorous TVP verification, AST evidence, fine-grained control
+profile: developer
+runtime:
+  mode: developer
+  max_iterations: 6
+  timeout: 900
+  auto_git_checkpoints: true
+
+llm:
+  default_provider: openai
+  default_model: gpt-4o
+
+workflow:
+  default: feature_development
+  require_approval:
+    - implementation_plan
+  auto_test: true
+  auto_review: true
+
+security:
+  enabled: true
+  filesystem_access: project_only
+  command_allowlist:
+    - python
+    - pip
+    - pytest
+    - git
+    - ruff
+    - mypy
+    - node
+    - npm
+    - cargo
+
+agents:
+  architect:
+    enabled: true
+  implementer:
+    enabled: true
+  debugger:
+    enabled: true
+  reviewer:
+    enabled: true
+  tester:
+    enabled: true
+  refactorer:
+    enabled: true
+  explainer:
+    enabled: true
